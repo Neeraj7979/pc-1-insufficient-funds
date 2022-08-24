@@ -11,9 +11,13 @@ public class Account {
     //create getter and setter
 
 
+    public int getAccountBalance() {
+        return accountBalance;
+    }
 
-
-
+    public void setAccountBalance(int accountBalance) {
+        this.accountBalance = accountBalance;
+    }
 
     /**
      * This method returns the new balance deducting the withdraw amount from the balance
@@ -26,7 +30,14 @@ public class Account {
      */
     public int  withdraw(int  amount) throws InsufficientFundException{
 
-        return 1;
+        if (accountBalance>500){
+            accountBalance= getAccountBalance()-amount;
+        }
+        else {
+            throw new InsufficientFundException("Low Balance Kindly Add Funds");
+
+        }
+        return accountBalance;
     }
 
 
